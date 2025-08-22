@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  maze-demo:
+    build: .
+    container_name: maze-llm-demo
+    command: >
+      conda run --no-capture-output -n maze-llm python run_demo.py
+    volumes:
+      - ./demos:/app/demos   # saves demo_run.gif locally
+    tty: true
+
+  maze-api:
+    build: .
+    container_name: maze-llm-api
+    command: >
+      conda run --no-capture-output -n maze-llm uvicorn orchestrator.api:app --host 0.0.0.0 --port 8000
+    ports:
+      - "8000:8000"
+    tty: true

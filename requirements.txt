@@ -1,0 +1,12 @@
+# core
+gym==0.26.5
+numpy
+transformers==4.34.0
+torch 
+langchain==0.0.300
+fastapi
+uvicorn
+networkx
+matplotlib
+imageio
+stable-baselines3==2.1.0 
